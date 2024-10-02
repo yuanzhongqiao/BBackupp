@@ -1,131 +1,114 @@
-# BBackupp
-
-Back up your iOS devices the way it's meant to be done.
-
-![BBackupp Screenshot](Resource/Readme/SCR-20240322-khfv.jpeg)
-
-## Features
-
-- [x] Effortlessly back up iOS devices.
-- [x] Monitor backup progress for each file.
-- [x] Perform one-time backups to local storage.
-- [x] **Enable wireless backups with IP address support.**
-- [x] **Seamless setup with Transferable Pair Record.**
-- [x] Secure your backups with encryption.
-- [x] Automate your backup schedule.
-- [x] **Automatically download app installers from the App Store.**
-- [x] Utilize snapshot technology for storing backups.
-- [x] **Support for storing backups locally, via SFTP, S3, and more.**
-- [x] Receive notifications throughout the backup process.
-- [x] Includes a simple alive checker via GET request.
-
-If this app helps you out, consider a [donate](https://github.com/sponsors/Lakr233).
-
-## Installation Guide
-
-### Homebrew
-
-To install BBackupp using Homebrew, follow these steps:
-
-1. Ensure that you have Homebrew installed. If you don't have it, you can install it by running the following command in your terminal:
-
-    ```sh
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
-
-2. Install BBackupp:
-
-    ```sh
-    brew install bbackupp
-    ```
-
-### From Release
-
-To install BBackupp from the release page:
-
-Visit the [Releases](https://github.com/Lakr233/BBackupp/releases) on GitHub.
-
-## ~~Partial Open Source Notice~~
-
-~~Starting from version 2.0, certain components are not included in the open-source repository:~~
-
-- ~~Code interfacing with the App Store API.~~
-- ~~User interface components.~~
-- ~~MuxProxy related code.~~
-- ~~Assets.xcassets~~
-
-~~To build your own BBackupp, you'll need to develop a custom user interface and exclude the features listed above.~~
-
-BBackupp v2.0 is now fully open-source. You can build your own version with the included source code. Please refer to the [License](./LICENSE) for more information.
-
-**I am unable to provide ongoing maintenance for this code due to time constraints. Therefore I made the decision to open-source it.**
-
-**It is unlikely that I will be able to provide support or update the code in the future.**
-
-## MuxProxy
-
-MuxProxy facilitates device discovery in environments where mDNS may not be available, allowing for the use of TailScale or ZeroTier.
-
-![MuxProxy Example](Resource/Readme/SCR-20240322-kihu.png)
-
-For integrating your toolchain with `libusbmuxd` and MuxProxy, launch BBackupp and locate the `Copy Terminal Environment` button under the Muxd menu.
-
-![MuxProxy Menu](Resource/Readme/SCR-20240322-hbbb.png)
-
-If you're considering using a tunnel to connect your device, we strongly recommend a high-speed internet connection. Without it, completing a backup in a timely manner might not be feasible. Please note that we are not responsible for resolving networking issues you may encounter. With the standard Tailscale configuration, transferring device information takes approximately 15 seconds. Optimizing this setup is entirely up to you.
-
-![Connect via Tailscale](Resource/Readme/SCR-20240325-jero.png)
-
-## Transferable Pair Record
-
-Support for transferable pair records allows you to set up a device on one computer and then export the record for use on another machine.
-
-**Note: Not all pair records are compatible with this feature.**
-
-We recommend backing up your device using a wired connection at least once before exporting the record.
-
-> Technical note: The EscowBag (device backup key) is transferred to the host (in this case, your Mac) at an unspecified time. If your pair record already contains this key, it should function correctly.
-
-To register a device without connecting to it directly, navigate to `Import Pair Record` in the `Muxd` menu. Enter an IP address and verify its accessibility.
-
-## Notifications
-
-During the backup process, we'll send notifications at the start and end, as well as if the backup fails.
-
-![Notification Setup Page Demo](Resource/Readme/SCR-20240322-khof.jpeg)
-
-We currently support the following notification providers:
-
-- [x] Bark (https://github.com/Finb/Bark)
-- [x] Telegram Bot (https://t.me/BotFather)
-
-## License
-
-GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-
-Refer to [License](./LICENSE) for more details. Subject to change.
-
-## Disclaimer
-
-We are not liable for any consequences arising from the use of this software. Potential issues include, but are not limited to:
-
-- Application crashes.
-- Backups failing to work.
-- Computer crashes, freezes, or restarts.
-- Damage to computer components.
-- Screen glitches, including white, black, or flashing screens.
-- Being late for work.
-- Reprimands from family members.
-- Being caught by your boss while not working.
-- Risk of job termination.
-- Legal issues related to leaked confidential information.
-- Unforeseen mishaps.
-- Turning into a cat.
-- Cat scratches.
-- The Earth exploding.
-- A reboot of the universe.
-- Any other imaginable scenario.
-
----
-
-Copyright © 2024 Lakr Aream. All Rights Reserved.
+<div class="Box-sc-g0xbh4-0 QkQOb js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">备份</font></font></h1><a id="user-content-bbackupp" class="anchor" aria-label="永久链接：BBackupp" href="#bbackupp"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按照预期的方式备份您的 iOS 设备。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/Lakr233/BBackupp/blob/main/Resource/Readme/SCR-20240322-khfv.jpeg"><img src="/Lakr233/BBackupp/raw/main/Resource/Readme/SCR-20240322-khfv.jpeg" alt="BBackupp 截图" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h2><a id="user-content-features" class="anchor" aria-label="固定链接：功能" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轻松备份 iOS 设备。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">监控每个文件的备份进度。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对本地存储执行一次性备份。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">启用具有 IP 地址支持的无线备份。</font></font></strong></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与可转让对记录的无缝设置。</font></font></strong></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用加密保护您的备份。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动化您的备份计划。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动从 App Store 下载应用程序安装程序。</font></font></strong></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">利用快照技术存储备份。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持通过 SFTP、S3 等方式在本地存储备份。</font></font></strong></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在整个备份过程中接收通知。</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包括通过 GET 请求的简单活动检查器。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果这个应用程序对您有帮助，请考虑</font></font><a href="https://github.com/sponsors/Lakr233"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捐赠</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装指南</font></font></h2><a id="user-content-installation-guide" class="anchor" aria-label="固定链接：安装指南" href="#installation-guide"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自制</font></font></h3><a id="user-content-homebrew" class="anchor" aria-label="永久链接：Homebrew" href="#homebrew"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要使用 Homebrew 安装 BBackupp，请按照以下步骤操作：</font></font></p>
+<ol dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保已安装 Homebrew。如果没有，可以在终端中运行以下命令进行安装：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>/bin/bash -c <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 BBackupp：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>brew install bbackupp</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="brew install bbackupp" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从发布开始</font></font></h3><a id="user-content-from-release" class="anchor" aria-label="固定链接：来自发布" href="#from-release"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要从发布页面安装 BBackupp：</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问GitHub 上的</font></font><a href="https://github.com/Lakr233/BBackupp/releases"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布版本</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部分开源声明</font></font></del></h2><a id="user-content-partial-open-source-notice" class="anchor" aria-label="永久链接：部分开源声明" href="#partial-open-source-notice"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 2.0 版本开始，某些组件不再包含在开源存储库中：</font></font></del></p>
+<ul dir="auto">
+<li><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与 App Store API 交互的代码。</font></font></del></li>
+<li><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户界面组件。</font></font></del></li>
+<li><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MuxProxy相关代码。</font></font></del></li>
+<li><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">资产.xcassets</font></font></del></li>
+</ul>
+<p dir="auto"><del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要构建您自己的 BBackupp，您需要开发自定义用户界面并排除上面列出的功能。</font></font></del></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BBackupp v2.0 现已完全开源。您可以使用随附的源代码构建自己的版本。请参阅</font></font><a href="/Lakr233/BBackupp/blob/main/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以获取更多信息。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于时间限制，我无法持续维护此代码。因此我决定将其开源。</font></font></strong></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我将来不太可能能够提供支持或更新代码。</font></font></strong></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">多路代理</font></font></h2><a id="user-content-muxproxy" class="anchor" aria-label="永久链接：MuxProxy" href="#muxproxy"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MuxProxy 有助于在 mDNS 不可用的环境中发现设备，从而允许使用 TailScale 或 ZeroTier。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/Lakr233/BBackupp/blob/main/Resource/Readme/SCR-20240322-kihu.png"><img src="/Lakr233/BBackupp/raw/main/Resource/Readme/SCR-20240322-kihu.png" alt="MuxProxy 示例" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要将您的工具链与</font></font><code>libusbmuxd</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MuxProxy 集成，请启动 BBackupp 并找到</font></font><code>Copy Terminal Environment</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Muxd 菜单下的按钮。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/Lakr233/BBackupp/blob/main/Resource/Readme/SCR-20240322-hbbb.png"><img src="/Lakr233/BBackupp/raw/main/Resource/Readme/SCR-20240322-hbbb.png" alt="MuxProxy 菜单" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您正在考虑使用隧道连接您的设备，我们强烈建议您使用高速互联网连接。如果没有高速互联网连接，可能无法及时完成备份。请注意，我们不负责解决您可能遇到的网络问题。使用标准 Tailscale 配置，传输设备信息大约需要 15 秒。优化此设置完全取决于您。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/Lakr233/BBackupp/blob/main/Resource/Readme/SCR-20240325-jero.png"><img src="/Lakr233/BBackupp/raw/main/Resource/Readme/SCR-20240325-jero.png" alt="通过 Tailscale 连接" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可转让配对记录</font></font></h2><a id="user-content-transferable-pair-record" class="anchor" aria-label="永久链接：可转让配对记录" href="#transferable-pair-record"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持可转移对记录，允许您在一台计算机上设置设备，然后导出记录以供另一台机器使用。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意：并非所有配对记录都兼容此功能。</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们建议在导出记录之前至少使用有线连接备份您的设备一次。</font></font></p>
+<blockquote>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">技术说明：EscowBag（设备备份密钥）会在未指定的时间传输到主机（在本例中为 Mac）。如果您的配对记录已包含此密钥，则它应该可以正常运行。</font></font></p>
+</blockquote>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要注册设备而不直接连接它，请</font></font><code>Import Pair Record</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在</font></font><code>Muxd</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">菜单中导航到。输入 IP 地址并验证其可访问性。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通知</font></font></h2><a id="user-content-notifications" class="anchor" aria-label="固定链接：通知" href="#notifications"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在备份过程中，我们会在备份开始、结束时以及备份失败时发送通知。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/Lakr233/BBackupp/blob/main/Resource/Readme/SCR-20240322-khof.jpeg"><img src="/Lakr233/BBackupp/raw/main/Resource/Readme/SCR-20240322-khof.jpeg" alt="通知设置页面演示" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们目前支持以下通知提供商：</font></font></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">树皮（</font></font><a href="https://github.com/Finb/Bark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/Finb/Bark</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">电报机器人（</font></font><a href="https://t.me/BotFather" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://t.me/BotFather</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GNU 通用公共许可证 第 3 版，2007 年 6 月 29 日</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="/Lakr233/BBackupp/blob/main/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以了解更多详情。如有变更，恕不另行通知。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">免责声明</font></font></h2><a id="user-content-disclaimer" class="anchor" aria-label="永久链接：免责声明" href="#disclaimer"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们对使用该软件造成的任何后果不承担任何责任。潜在问题包括但不限于：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应用程序崩溃。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">备份无法正常工作。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">计算机崩溃、死机或重新启动。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">计算机部件损坏。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">屏幕故障，包括白屏、黑屏或闪烁。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上班迟到。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">家人的斥责。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不工作时被老板发现。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">终止工作的风险。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与泄露机密信息相关的法律问题。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无法预见的事故。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">變成一隻猫。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">猫抓伤。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地球爆炸。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">宇宙的重新启动。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">任何其他可以想象到的情况。</font></font></li>
+</ul>
+<hr>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有 © 2024 Lakr Aream。保留所有权利。</font></font></p>
+</article></div>
